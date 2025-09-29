@@ -4,23 +4,23 @@ body,main,header {
     font-family: 'EB Garamond', serif;
   }
 
-
 /* ********** HEADER ********** ********** ********** ***********/
-  header{
-    background-color:#F8D557;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding: 10px 30px;
+header{
+  background-color:#F8D557;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 10px 30px;
 }
 
 .logo {
   width: 50px;
-  transition: opacity 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 a:hover .logo {
-  opacity: 0.6;
+  transform: scale(1.1); /* zoom */
+  opacity: 0.8;          /* leve transparencia */
 }
 
 .iconos-derecha {
@@ -31,18 +31,18 @@ a:hover .logo {
 .iconos-derecha img {
   width: 35px;
   height: 35px;
-  transition: opacity 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .iconos-derecha a:hover img {
-  opacity: 0.6; /* efecto al pasar el mouse */
+  transform: scale(1.1); /* zoom */
+  opacity: 0.8;
 }
 
 /* ----  MENU  ---- */
 .menu{
   border-top: 1px solid #0000;
   border-bottom: 2px solid #0000;
- 
 }
 .menu ul {
   display: flex;
@@ -57,14 +57,16 @@ a:hover .logo {
   text-decoration: none;
   font-size: 25px;
   padding: 0px 20px;
-  
+  display: inline-block; /* 👈 necesario para que funcione bien el transform */
+  transition: transform 0.4s ease, color 0.3s ease;
 }
 
 .menu li a:hover {
-  color: #fff47e;
+  color: #0f3d4c;
+  transform: scale(1.05); /* zoom */
 }
 
-/* ********** INICIO ********** ********** ********** *********** ***********/
+/* ********** ********** ********** ********** *********** *********** *********** INICIO ***********/
 
 /* ----  s1  ---- */
 .caratula {
@@ -74,14 +76,14 @@ a:hover .logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f2f2f2;
+  background: #faf8ed;
 }
 
 .fondo img {
   position: absolute;
   width: 250px;
   opacity: 0.7;
-  animation: flotar 6s infinite alternate ease-in-out;
+  animation: flotar 4s infinite alternate ease-in-out;
 }
 .fondo img.obraboulevard {
   width: 270px;
@@ -111,8 +113,9 @@ a:hover .logo {
 
 .contenido h1 {
   font-family: 'EB Garamond', serif;
-  font-size: 5rem;
+  font-size: 5.5rem;
   color: black;
+  
 }
 
 .boton-flecha {
@@ -126,7 +129,7 @@ a:hover .logo {
   border-radius: 50%;
   text-decoration: none;
   border: 1px solid black;
-  transition: background 0.3s;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .boton-flecha img {
@@ -136,9 +139,10 @@ a:hover .logo {
 
 .boton-flecha:hover {
   background: #fbbf24;
+  transform: scale(1.1); /* 👈 zoom */
 }
 
-/* ----  s2  ---- */
+/* ----  s2 SOBRE EL SITIO  ---- */
 
 
 .historia {
@@ -176,12 +180,16 @@ a:hover .logo {
 }
 
 .contenido-historia h1{
-  font-size: 55px;
+  font-size: 60px;
   margin-bottom: 30px;
+  border-bottom: 2px solid #f8d557; /* Línea de color de acento */
+  padding-bottom: 10px;
+  width: 800px;
 }
 .contenido-historia p{
   font-size: 20px;
   margin-bottom: 30px;
+  text-align: justify;
 }
 
 
@@ -194,15 +202,161 @@ a:hover .logo {
   text-decoration: none;
   font-weight: bold;
   border: 1px solid black;
-  transition: background 0.3s;
-  max-width: 80px;
+  max-width: 100px;
   text-align: center;
+  font-size: 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .cta-historia:hover {
   background: #fbbf24;
+  transform: scale(1.03); 
 }
 
+
+
+/* ----  s3  PRINCIPALES OBRAS ---- */
+.obras .tituloppalesobras h1{
+  display: flex;
+  align-items: center;
+
+  font-size: 70px;
+  padding:20px 40px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+
+  white-space: nonwrap;
+  max-width: 100%;
+  overflow: hidden;
+}
+.obras .tituloppalesobras h1::after {
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  
+  background-color: #000;
+  margin-left:2%;
+  margin-top: 2%;
+  margin-bottom:15px;
+}
+/* CONTENEDOR GENERAL */
+.obras {
+  background: #faf8ed;
+  padding-left: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-right: 0px;
+  font-family: 'EB Garamond', serif;
+}
+
+.obras-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  
+}
+
+/* TEXTO IZQUIERDA */
+.obra-info {
+  flex: 1;
+  
+  padding: 40px 0px;
+  margin-left: 40px;
+  
+}
+
+.obra-info h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  max-width:80% ;
+  font-weight: 500;
+  border-bottom: 2px solid #f8d557; /* Línea de color de acento */
+  padding-bottom: 10px;
+  
+}
+
+.obra-info p {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #0f3d4c;
+  text-align: justify;
+}
+
+.obra-info button {
+  padding: 10px 20px;
+  background: #f8d557;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'EB Garamond', serif;
+  width: 120px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.obra-info button:hover {
+  background: #fbbf24;
+  transform: scale(1.03); 
+}
+
+/* CARRUSEL DERECHA */
+.carousel {
+  flex: 2;
+  overflow: hidden;
+  position: relative;
+  height: 450px; /* ← esto es clave */
+  padding: 30px 0;
+  padding-bottom: 130px;
+}
+
+.slide-track {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.6s ease;
+  padding-bottom: 10px; /* para que no quede tan pegado */
+}
+
+.slide {
+  flex: 0 0 380px;
+  height: 520px; /* ← esto también */
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+}
+.slide.activa {
+  border: 3px solid #f8d557;
+  transform: scale(1.05); /* efecto de resalte */
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+
+
+/* BOTONES ABAJO */
+.nav-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.nav-buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-buttons button:hover {
+  background: #f8d557;
+  transform: scale(1.1);
+}
+/* ----  s4 SECCION DE LA CITA  ---- */
 .cita-banner {
   position: relative;
   background: #0f3d4c; /* azul petróleo */
@@ -213,7 +367,7 @@ a:hover .logo {
   overflow: hidden;
   min-height: 20vh;
 }
-/* ----  s3  ---- */
+
 .cita-banner {
   display: flex;
   justify-content: center;
@@ -225,7 +379,7 @@ a:hover .logo {
 .cita {
   position: absolute; /* 👈 asegura que ambas se superpongan */
   opacity: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   max-width: 800px;
   line-height: 1.6;
   transition: opacity 1s ease-in-out;
@@ -234,6 +388,15 @@ a:hover .logo {
 
 .cita.activa {
   opacity: 1;
+}
+.autor {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: rgba(174, 174, 189, 0.804); /* mismo color que las comillas */
+  text-align: right; /* 👈 lo manda a la derecha */
+  padding-right: 20px; /* un poquito de espacio del borde */
 }
 
 
@@ -257,166 +420,7 @@ a:hover .logo {
   bottom: -40px;
 }
 
-/* ----  s4  ---- */
-
-.tituloppalesobras h1{
-  font-size: 70px;
-  padding: 40px 30px;
-  background: #f4efdb;
-}
-.tituloppalesobras h1::after {
-  content: "";
-  flex-grow: 1;
-  height: 2px;
-  width: 850px;
-  background-color: #000;
-  display: inline-block;
-  margin-left: 20px;
-  margin-bottom:15px;
-}
-
-.container{
-  position: relative;
-  width: 100%;
-  height: 700px;
-  background: #f5f5f5;
-  
-}
-
-.container .slide .item{
-  width: 300px;
-  height: 400px;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  border-radius: 5px;
-  /*box-shadow: 0 30px 50px #505050;*/
-  background-position: 50% 50%;
-  background-size: cover;
-  display: inline-block;
-  transition: 0.5s;
-}
-
-.slide .item:nth-child(1),
-.slide .item:nth-child(2){
-  top: 0;
-  left: 0;
-  transform: translate(0, 0);
-  border-radius: 0;
-  width: 100%;
-  height: 100%;
-}
-
-
-.slide .item:nth-child(3){
-  left: 45%;
-}
-.slide .item:nth-child(4){
-  left: calc(52% + 220px);
-}
-.slide .item:nth-child(5){
-  left: calc(59% + 440px);
-}
-
-/* here n = 0, 1, 2, 3,... */
-.slide .item:nth-child(n + 6){
-  left: calc(50% + 660px);
-  opacity: 0;
-}
-
-
-
-.item .content{
-  position: absolute;
-  top: 50%;
-  left: 100px;
-  width: 400px;
-  text-align: left;
-  color: #eee;
-  transform: translate(0, -50%);
-  font-family: system-ui;
-  display: none;
-}
-
-
-.slide .item:nth-child(2) .content{
-  display: block;
-}
-
-
-.content .name {
-  font-size: 50px;
-  font-weight: bold;
-  font-family: 'EB Garamond', serif;
-  text-transform: uppercase;
-  opacity: 0;
-  animation: animate 1s ease-in-out 1 forwards;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* sombra */
-}
-
-.content .des {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-size: 25px;
-  font-family: 'EB Garamond', serif;
-  opacity: 0;
-  animation: animate 1s ease-in-out 0.3s 1 forwards;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.6); /* sombra */
-}
-
-.content button{
-  padding: 10px 20px;
-  border: 1px solid black;
-  cursor: pointer;
-  opacity: 0;
-  animation: animate 1s ease-in-out 0.6s 1 forwards;
-  font-family: 'EB Garamond', serif;
-  font-size: 18px;
-  background-color: #F8D557;
-}
-
-
-@keyframes animate {
-  from{
-      opacity: 0;
-      transform: translate(0, 100px);
-      filter: blur(33px);
-  }
-
-  to{
-      opacity: 1;
-      transform: translate(0);
-      filter: blur(0);
-  }
-}
-
-
-
-.button{
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  bottom: 20px;
-  
-}
-
-.button button{
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  margin: 0 5px;
-  border: 1px solid #000;
-  transition: 0.3s;
-}
-
-.button button:hover{
-  background: #ababab;
-  color: #fff;
-}
-
-/* ----  s5  ---- */
+/* ----  s5 ARTISTAS RECONOCIDOS ---- */
 
 .artistas {
   display: grid;
@@ -424,7 +428,7 @@ a:hover .logo {
   gap: 40px;
   align-items: center;
   padding: 60px;
-  background-color: #f5f5f5;
+  background-color: #f4efdb;
 }
 
 /* Grid de imágenes */
@@ -464,12 +468,17 @@ a:hover .logo {
 .texto-artistas h1 {
   font-size: 70px;
   margin-bottom: 30px;
+  border-bottom: 2px solid #f8d557; /* Línea de color de acento */
+  padding-bottom: 10px;
+  
 }
 
 .texto-artistas p {
   margin-bottom: 15px;
   line-height: 1.6;
   font-size: 20px;
+  max-width: 800px;
+  text-align: justify;
 }
 
 .texto-artistas .boton {
@@ -481,28 +490,32 @@ a:hover .logo {
   text-decoration: none;
   font-weight: bold;
   border: 1px solid black;
-  transition: background 0.3s;
   width: 80px;
   text-align: center;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .texto-artistas .boton:hover {
   background: #fbbf24;
+  transform: scale(1.03); 
 }
 
- /* ----  s6  ---- */
+ /* ----  s6  CONTACTO NEWSLETTER ---- */
 
 .contacto{
   display: flex;
   flex-direction: column;
   background-color: #F8D557;
+  height: 250px;
   padding: 20px 100px;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .contacto h1{
-  font-size: 70px;
+  font-size: 45px;
   margin-bottom: 20px;
   text-align: center;
   
@@ -512,31 +525,46 @@ a:hover .logo {
   font-size: 25px;
   text-align: center;
 }
+.linea1{
+  height: 0.5px;
+  width: 100%;
+  background-color: #000;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.linea2{
+  height: 0.5px;
+  width: 100%;
+  background-color: #000;
+  display: inline-block;
+  margin-top: 20px;
+}
 
 .boton-contacto{
-  
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  background: #0f3d4c;
+  background: #1796c1;
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  
   border: 1px solid black;
   transition: background 0.3s;
   width: 80px;
   text-align: center;
+  font-size: 20px;
 }
-.boton-contacto .boton:hover {
-  background: #fbbf24;
+.boton-contacto:hover {
+  background: #0f3d4c;
+  ;
 }
 
-/* ----  s7  ---- */
+/* ----  s7 DONDE ENCONTRAR ---- */
 
 .donde-encontrar {
   text-align: center;
-  padding: 50px 20px;
-  background-color: #f5f5f5;
+  padding: 80px 40px;
+  background-color: #faf8ed;
 }
 
 .titulo-seccion {
@@ -563,20 +591,29 @@ a:hover .logo {
   left: 0;
   width: 100%;
   height: 100%; /* El slide ocupará el 100% de la altura del carrusel-contenedor */
-  display: none;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(1.05); /* 👈 entra con un leve zoom-out */
+  transition: opacity 1s ease, transform 1s ease;
+  border-radius: 8px;
 }
 
 .carrusel-slide.activo {
-  display: block;
+  opacity: 1;
+  transform: scale(1); /* 👈 vuelve al tamaño real suavemente */
+  z-index: 1;
 }
 
 .carrusel-slide img {
   width: 100%;
   height: 100%; /* La imagen ocupará el 100% de la altura del slide */
+  object-fit: cover;
+  
   display: block;
-  border-radius: 2px;
-  object-fit: cover; /* **Ajusta la imagen sin distorsionarla para que ocupe todo el espacio** */
+  filter: brightness(0.95); /* 👈 un toque más elegante */
+  transition: filter 0.5s ease;
+}
+.carrusel-slide img:hover {
+  filter: brightness(1);
 }
 
 /* Contenedor del texto y botón, posicionado sobre la imagen */
@@ -591,76 +628,926 @@ a:hover .logo {
   border-bottom-right-radius: 2px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  
   align-items: center;
-  box-sizing: border-box;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.6s ease;
 }
-
+.carrusel-slide.activo .contenido-slide {
+  transform: translateY(0);
+  opacity: 1;
+}
 .descripcion-slide {
   font-size: 18px;
   color: #333;
   text-align: left;
   flex-grow: 1;
   margin-right: 20px;
+  max-width: 620px;
 }
 
 .boton-cta {
   display: inline-block;
   padding: 12px 24px;
   background-color: #F8D557;
-  color: #0f3d4c;
+  color: black;
   text-decoration: none;
   font-weight: bold;
   border: 1px solid #0f3d4c;
-  transition: background-color 0.3s;
+  transition: transform 0.3s ease, background-color 0.3s ease;
   width: 80px;
 }
 
 .boton-cta:hover {
-  background-color: #e0c84c;
+  background-color: #fbbf24;
+  transform: scale(1.05);
 }
 
-/* --- SOLUCIÓN PARA LA LÍNEA --- */
+/* --- PUNTOS + LÍNEA CONECTADA --- */
 .carrusel-puntos {
-  color: #e0c84c;
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between; /* Distribuye los puntos a los lados de la línea */
-  align-items: center;
-  width: 150px; /* **Añade un ancho fijo** para que la línea se dibuje */
-  margin-left: auto;
-  margin-right: auto; /* Centra los puntos en la página */
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px; /* 👈 ajustá el ancho según tu diseño */
+  margin: 30px auto 0;
 }
 
+/* Línea detrás de los puntos */
 .carrusel-puntos::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #ccc;
+  background-color: darkgrey; /* color de la línea */
   transform: translateY(-50%);
-  z-index: -1;
+  z-index: 0;
 }
 
+/* Puntos */
 .punto {
-  width: 12px;
-  height: 12px;
-  background-color: #ccc;
+  width: 18px;
+  height: 18px;
+  background-color: #8e99aa;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s;
   position: relative;
-  z-index: 1;
+  z-index: 1; /* encima de la línea */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.punto:hover {
+  transform: scale(1.2);
+  background-color: #f8d557;
 }
 
 .punto.activo {
   background-color: #0f3d4c;
+  transform: scale(1.3);
 }
 
-/* ---- Footer ---- */
+/* ********** HISTORIA ********** ********** ********** *********** *********** ***********/
+
+/* ----- SECCIÓN LINEA DE TIEMPO ----- */
+.historia-linea{
+  background: #fff;
+  padding: 100px 150px;
+  
+  padding-bottom: 140px;
+  font-family: 'EB Garamond', serif;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.tituloppal h1{
+  display: flex;
+  align-items: center;
+
+  font-size: 70px;
+  padding:20px 40px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+
+  white-space: nonwrap;
+  max-width: 100%;
+  overflow: hidden;
+
+}
+.tituloppal h1::after {
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  
+  background-color: #000;
+  margin-left:2%;
+  margin-top: 2%;
+  margin-bottom:15px;
+}
+.subtitulo{
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.linea-abajo{
+  background-color: black;
+  height: 1px;
+  width: 900px;
+  margin: 0 auto;
+
+}
+
+/* ----- LÍNEA DE TIEMPO ----- */
+.linea-de-tiempo {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  position: relative;
+}
+
+.evento {
+  display: grid;
+  grid-template-columns: 100px 40px 1fr; /* fecha | línea | detalle */
+  align-items: center;
+  gap: 20px;
+}
+
+/* Fecha */
+.fecha {
+  font-weight: bold;
+  font-size: 22px;
+  text-align: right;
+  color: #333;
+}
+
+/* Línea vertical */
+.linea {
+  position: relative;
+  width: 2px;
+  background: #ddd;
+  margin: 0 auto;
+  height: 180px;
+}
+
+.puntolinea {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: #F8D557;
+  border-radius: 50%;
+}
+
+/* Detalle (texto + imagen) */
+.detalle {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  
+}
+
+.detalle p {
+  flex: 1;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: justify;
+  max-width: 800px;
+}
+
+.detalle img {
+  flex: 0 0 250px;
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #ddd;
+}
+/* ---- SECCIÓN CARACTERÍSTICAS ---- */
+.caracteristicas-section {
+  background: #fff;
+  padding: 100px 80px;
+  font-family: 'EB Garamond', serif;
+}
+
+
+/* Layout en dos columnas */
+.ppales-caracteristicas {
+  display: flex;
+  gap: 200px;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+/* LISTA IZQUIERDA */
+.caracteristicas{
+  max-width: 700px;
+}
+.caracteristicas ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.caracteristicas li {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 40px;
+  text-align: justify;
+}
+
+/* Círculo con estrella */
+.caracteristicas li::before {
+  content: "✶";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* IMÁGENES DERECHA */
+.imagenes-redondas {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-gap: 20px;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+.img-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* **********  ********** ********** ********** *********** *********** *********** ARTISTAS DESTACADOS ***********/
+.artista-monet-destacado {
+  max-width: 1200px;
+  margin: 50px auto; /* Centra el contenedor y agrega espacio */
+  padding: 0 20px;
+  
+  /* Configuración de Flexbox para alinear la imagen y el texto */
+  display: flex;
+  gap: 40px; /* Espacio entre la imagen y el texto */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+
+.artista-monet-destacado img {
+  /* La imagen ocupa un tercio del espacio */
+  width: 35%;
+  height: auto;
+  max-height: 450px; /* Altura máxima para evitar que sea muy grande */
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.texto-artista-destacado {
+  /* El texto ocupa el resto del espacio */
+  width: 65%;
+  text-align: left;
+}
+
+.texto-artista-destacado h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.5em;
+  /*color: black;*/
+  color: #0f3d4c; /* Color oscuro */
+  margin-top: 0;
+  border-bottom: 2px solid #f8d557; /* Línea de color de acento */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.texto-artista-destacado h3 {
+  font-size: 25px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  /*color: #0f3d4c;*/
+  color: #e0c84c;
+}
+
+.texto-artista-destacado p {
+  font-size: 19px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: justify;
+}
+
+
+/* ********** GRILLA DE ARTISTAS ********** */
+
+.artistas-grilla {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  
+  /* Grilla de 4 columnas */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 30px; 
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+.artista-item {
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.artista-item:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.artista-item img {
+  width: 100%;
+  /* Altura fija para la grilla de retratos */
+  height: 350px; 
+  object-fit: cover;
+  display: block;
+}
+
+.info-artista-resumen {
+  padding: 15px 10px;
+  background-color: #fefefe;
+  border-top: 3px solid #f8d557;
+}
+
+.nombre-artista {
+  margin: 0;
+  font-size: 1.4em;
+  color: #0f3d4c;
+  font-weight: 700;
+}
+/* ********** MODAL DESLIZANTE DE ARTISTAS ********** */
+
+.modal-deslizante {
+  /* Mantiene el fondo oscuro cubriendo toda la pantalla */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000; /* Asegura que esté por encima de todo, más que el modal anterior */
+  
+  /* Control de Visibilidad y Transición */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+.modal-deslizante.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-contenido-artista {
+  position: fixed;
+  top: 0;
+  right: 0; /* Empieza fuera de la pantalla a la derecha */
+  height: 100%;
+  width: 400px; /* Ancho del modal */
+  background-color: #fefefe;
+  padding: 30px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  
+  /* Animación de Deslizamiento */
+  transform: translateX(100%); 
+  transition: transform 0.4s ease-out;
+}
+
+.modal-deslizante.activo .modal-contenido-artista {
+  transform: translateX(0); /* Se desliza hacia la izquierda, entrando */
+}
+
+/* Estilos de Contenido Interno */
+
+.modal-contenido-artista img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.info-detalle-artista h2 {
+  font-size: 2em;
+  color: #0f3d4c;
+  border-bottom: 2px solid #f8d557;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.info-detalle-artista p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 380px;
+}
+.info-detalle-artista h3 {
+  font-size: 1.1em;
+  color: #0f3d4c;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.info-detalle-artista strong {
+  color: #0f3d4c;
+  
+}
+
+.cerrar-artista {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 20; /* Asegura que esté por encima de la imagen */
+}
+
+
+
+
+
+
+/* **********  ********** ********** ********** *********** *********** OBRAS DESTACADAS ***********/
+
+
+
+.obras-destacadas {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* --- Estructura de Grilla 3x3 --- */
+
+.todas-las-obras {
+    display: none;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+    gap: 30px; /* Espacio entre las cajas */
+    
+    /* Adaptación para móviles/tabletas */
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.obra-item {
+    position: relative; /* Clave para posicionar el recuadro de info */
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.obra-item:hover {
+    transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.obra-item img {
+    width: 100%;
+    /* Altura fija para todas las imágenes */
+    height: 300px; 
+    object-fit: cover; /* Asegura que la imagen no se estire y cubra el área */
+    display: block;
+}
+
+/* --- Recuadro Semitransparente --- */
+
+.info-resumen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    padding: 10px 15px;
+    
+    /* Fondo Blanco Semitransparente */
+    background-color: rgba(255, 255, 255, 0.85);
+    
+    /* Asegura que el texto sea legible */
+    color: #000;
+    text-align: left;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    border-top: 3px solid #f8d557;
+
+}
+
+.obra-item:hover .info-resumen {
+    background-color: rgba(255, 255, 255, 0.95); /* Menos transparencia al pasar el mouse */
+}
+
+.nombre-obra {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    white-space: nowrap; /* Evita que el título se rompa */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Puntos suspensivos si el texto es muy largo */
+    
+}
+/* ---- ESTILOS DEL MODAL (Ventana Emergente) ---- */
+.info-detalle-oculta {
+  display: none;
+}
+
+.modal-contenedor {
+  /* El modal cubre toda la pantalla y está oculto */
+  visibility: hidden; /* OCULTA pero permite transicionar */
+  opacity: 0;         /* INICIA TOTALMENTE TRANSPARENTE */
+  transition: visibility 0.3s, opacity 0.3s; /* ANIMACIÓN DE 0.3 SEGUNDOS */
+
+  position: fixed; 
+  z-index: 1000; /* Asegura que esté por encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+  padding-top: 60px;
+}
+
+.modal-contenedor.activo {
+  visibility: visible; /* HACE QUE SEA VISIBLE */
+  opacity: 1;          /* LO HACE TOTALMENTE OPACO */
+}
+
+.modal-contenido {
+  background-color: #fefefe;
+  margin: 5% auto; /* Centrado vertical y horizontal */
+  padding: 30px;
+  border: 1px solid #888;
+  width: 90%; 
+  max-width: 900px; /* Ancho máximo */
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  /* Animación extra: que aparezca desde arriba */
+  transform: translateY(-50px);
+  transition: opacity 0.3s, transform 0.3s; 
+}
+.modal-contenedor.activo .modal-contenido {
+  transform: translateY(0); /* Vuelve a su posición normal al activarse */
+}
+
+
+.modal-cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 20px;
+}
+
+.modal-cerrar:hover,
+.modal-cerrar:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.modal-cuerpo {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.modal-cuerpo img {
+  width: 40%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.modal-texto {
+  width: 60%;
+  text-align: left;
+}
+
+.modal-texto h2 {
+  font-size: 2.2em;
+  color: #0f3d4c;
+  margin-top: 0;
+  border-bottom: 2px solid #F8D557;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.modal-texto p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #0f3d4c;
+}
+
+/* --- PAGINACIÓN Y CONTROL DE VISIBILIDAD --- */
+
+.todas-las-obras.pagina-activa {
+  /* **NUEVO:** SOLO el contenedor con esta clase se muestra como grilla */
+  display: grid; 
+}
+/* El contenedor que está activo sí se muestra */
+.todas-las-obras.pagina-activa {
+  display: grid; /* Vuelve a usar el display: grid de todas-las-obras */
+}
+
+.paginacion {
+  margin-top: 50px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.enlace-pagina {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 5px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #0f3d4c;
+  border: 1px solid #0f3d4c;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.enlace-pagina:hover {
+  background-color: #f8d557;
+  border-color: #f8d557;
+  color: #000;
+}
+
+.enlace-pagina.activa {
+  background-color: #0f3d4c; /* Fondo oscuro para la página actual */
+  color: white;
+  border-color: #0f3d4c;
+  cursor: default;
+}
+
+
+/* **********  ********** ********** ********** *********** *********** DONDE VER ***********/
+
+/* Estilos Generales de la Sección */
+.donde-ver {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tituloppal-dondever h1 {
+  display: flex;
+  align-items: center;
+
+  font-size: 70px;
+  padding:20px 40px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+
+  white-space: nonwrap;
+  max-width: 100%;
+  overflow: hidden;
+
+}
+.tituloppal-dondever h1::after {
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  background-color: #000;
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-bottom: 15px;
+}
+
+.texto-introductorio {
+  font-size: 26px;
+  line-height: 1.6;
+  margin-bottom: 90px;
+  text-align: center;
+  color: #333;
+}
+
+.linea-abajo-dondever{
+  background-color: black;
+  height: 1px;
+  width: 900px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+
+/* --- Diseño de Dos Columnas (Flexbox) --- */
+.contenedor-mapa {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+/* Lista a la izquierda */
+.listado-lugares {
+  flex: 1;
+  padding-right: 20px;
+  border-right: 1px solid #ccc;
+}
+
+
+
+/* Estilos de los ítems de la lista */
+.lugar-item {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s;
+  cursor: pointer;
+  text-align: left;
+}
+
+.lugar-item:hover {
+  transform: scale(1.03); 
+
+  
+}
+
+.lugar-item h3 {
+  font-size: 30px;
+  color: #0f3d4c;
+  margin-bottom: 5px;
+}
+
+.lugar-item p {
+  font-size: 22px;
+  margin: 2px 0;
+  color: #555;
+}
+
+.ver-mapa {
+  background-color: #F8D557;
+  color: #0f3d4c;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-family: 'EB Garamond', serif;
+  border: 0.5px solid black;
+}
+
+.ver-mapa:hover {
+  background-color: #e0c84c;
+  transform: scale(1.03); 
+
+}
+
+
+.mapa {
+  flex: 2;
+  min-height: 500px;
+  border: 1px solid #ccc;
+}
+
+/* El mapa interactivo ocupa todo el espacio */
+#mapa-interactivo {
+  width: 100%;
+  height: 100% !important;
+  min-height: 500px;
+  background: #ddd; /* 👈 así ves el espacio aunque no cargue Leaflet */
+}
+
+
+/* **********  ********** ********** ********** *********** *********** CONTACTO ***********/
+
+.fondomitad-contacto {
+  background-image: 
+    linear-gradient(to bottom, #f5f5f5 60%, transparent 90%),
+    url('imagenes/slide-grenouillere-renoir.jpg');
+  background-size: 100% 100%, cover;
+  background-position: top,bottom;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+
+
+.subtitulo-contacto{
+  font-size: 60px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 0px;
+  padding-top: 120px;
+  color: black;
+}
+.linea-abajo-contacto{
+  background-color: black;
+  height: 1px;
+  width: 900px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+.contactoform {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'EB Garamond', serif;
+  padding-bottom: 60px;
+  padding-top: 50px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+  padding-left: 70px;
+  padding-right: 70px;
+  border-radius: 4px;
+  
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input, textarea {
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 8px;
+  font-size: 16px;
+  font-family: 'EB Garamond', serif;
+  outline: none;
+  
+}
+
+textarea {
+  resize: none;
+}
+
+.btn-enviar {
+  background: #F8D557;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  transition: background 0.3s;
+  font-family: 'EB Garamond', serif;
+  width: 100px;
+}
+
+.btn-enviar:hover {
+  background: #e0c84c;
+}
+
+/* ********** FOOTER ********** ********** ********** ***********/
 footer {
   background-color: #F8D557;
   color: #000;
@@ -687,7 +1574,14 @@ footer {
   
   padding: 10px;
   background: #F8D557;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
+
+.footer-logo img:hover{
+  transform: scale(1.03); 
+
+}
+
 
 .footer-links-group {
   flex-grow: 1;
@@ -727,8 +1621,7 @@ footer {
 }
 
 .footer-bottom {
-  border-top: 1px solid #000; /* línea arriba */
-  margin-top: 20px;
+  border-top: 1px solid #000; /* línea ABAJO */
   padding-top: 15px;
   text-align: center;
 }
@@ -737,4 +1630,95 @@ footer {
   margin: 0;
   font-size: 16px;
   font-weight: bold;
+}
+
+/*LIBRERIAs*/
+.text-focus-in {
+	-webkit-animation: text-focus-in 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) 5s both;
+	        animation: text-focus-in 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) 5s both;
+}
+
+
+ @-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+.focus-in-expand {
+	-webkit-animation: focus-in-expand 4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+	        animation: focus-in-expand 4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+}
+
+@-webkit-keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+.tracking-in-expand {
+	-webkit-animation: tracking-in-expand 4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+	        animation: tracking-in-expand 4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }
