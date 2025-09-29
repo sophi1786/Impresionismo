@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Impresionismo </title>
+    <link rel="shortcut icon" href="../imagenes/logo.png">
+
+    <link rel = "stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Tipos: Regular (400) - Bold (700) - Italic (400, 700)-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+</head>
+<body>
+<header>
+
+    <a href="../index.html"><img src="../imagenes/logo.png" class="logo" alt="logo - impresionismo"></a>
+    <nav class="menu">
+        <ul>
+            <li><a href="historia.html"> Historia </a></li>
+            <li><a href="artistas.html"> Artistas </a></li>
+            <li><a href="obras.html"> Obras </a></li>
+            <li><a href="dondever.html"> Dónde ver </a></li>
+            <li><a href="contacto.html"> Contacto </a></li>
+        </ul>
+    </nav>
+
+    <div class="iconos-derecha">
+        <a href="#"><img src="../imagenes/icono-lupa.png" alt="Buscar"></a>
+        <a href="#"><img src="../imagenes/icono-perfil.png" alt="Perfil"></a>
+    </div>
+
+</header>
+<main>
+<div class="fondomitad-contacto">
+
+    <div class="subtitulo-contacto">
+        <p class="tracking-in-expand">Contacto</p>
+    </div>
+    <div class="linea-abajo-contacto">
+    </div>
+    <!-- FORMULARIO -->
+<section class="contactoform">
+    <form action="procesar.php" method="post"> 
+      <!-- method="post" es lo más común para enviar datos de usuario -->
+
+    <div class="form-row">
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="apellido">Apellido *</label>
+          <input type="text" id="apellido" name="apellido" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-enviar">Enviar</button>
+
+    </form>
+    
+</section>
+
+</div>
+
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-top">
+        <div class="footer-logo">
+            <a href="../index.html"><img src="../imagenes/logo.png"></a>
+        </div>
+        <div class="footer-links-group">
+            <h2>Ir a</h2>
+            <nav class="footer-nav">
+                <a href="../index.html">Inicio</a>
+                <a href="historia.html">Historia</a>
+                <a href="artistas.html">Artistas</a>
+                <a href="obras.html">Obras</a>
+                <a href="dondever.html">Dónde ver</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+        </div>
+        <div class="footer-bottom">
+        <p>Hecho x Sophia Busada</p>
+        </div>
+    </div>
+    
+</footer>
+</body>
+</html>
