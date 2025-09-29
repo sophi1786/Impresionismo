@@ -172,7 +172,7 @@ a:hover .logo {
   border-radius: 5px; 
   text-align: left;
   max-width: 45%;   
-  height: 50%;     
+  max-height: fit-content;    
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,7 +184,6 @@ a:hover .logo {
   margin-bottom: 30px;
   border-bottom: 2px solid #f8d557; /* Línea de color de acento */
   padding-bottom: 10px;
-  width: 800px;
 }
 .contenido-historia p{
   font-size: 20px;
